@@ -1,7 +1,7 @@
 # Vegetation_Drought_Coupling_with_Optimal_Timescales-
-The codes to support the results in the paper entitled "Declining coupling between vegetation and drought over the past three decades"\n
-\n
-(1) Input_data: All the input data;\n
+The codes to support the results in the paper entitled "Declining coupling between vegetation and drought over the past three decades"  
+  
+(1) Input_data: All the input data;  
 (2) Output_data: All the output data;\n
 (3) cal_GIMMS_NDVI_maxPearson_01-24_loops_1982-2015_17windows.m: the matlab code to calculate the optimal timescales and maximun pearson coefficient, the Theil-Sen slope trend; the global area-weighted mean; the correlation between TSd and Rd;\n
 (4) ktaub.m: The function to calculate Theil-Sen slope trend;\n
