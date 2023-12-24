@@ -6,29 +6,29 @@ outpath=[rootpath,'\figures'];
 if ~exist(outpath)                                                                                                                       
     mkdir(outpath)  % if not exist, creat a new folder                                                                                   
 end                                                                                                                                      
-[mask_land,r]=geotiffread('D:\ToE\landmask_0.5degree.tif');                                                 
+[mask_land,r]=geotiffread('D:\Droughts_scales\landmask_0.5degree.tif');                                                 
 load('D:\Droughts_scales\mask_ice_bare.mat');                                                               
 id1=find(mask_ice_bare~=1);                                                                                 
 id2=find(mask_land==1);                                                                                     
 mask=intersect(id1,id2);    
-load('D:\ToE\Areas_05.mat')£» %the pixel areas at 0.5X0.5 degree
-load('D:\ToE\continental_raction.mat');  %the proportion of land areas at 0.5X0.5 degree
+load('D:\Droughts_scales\Areas_05.mat')Â£Â» %the pixel areas at 0.5X0.5 degree
+load('D:\Droughts_scales\continental_raction.mat');  %the proportion of land areas at 0.5X0.5 degree
 Areas=A.*fr;
 %%%%%%%%%%%
-[mask_land,~]=geotiffread('D:\ToE\landmask_0.5degree.tif');                                                                                  
+[mask_land,~]=geotiffread('D:\Droughts_scales\landmask_0.5degree.tif');                                                                                  
 load('D:\Droughts_scales\mask_ice_bare.mat');                                                                                                                   
 id1=find(mask_ice_bare~=1);                                                                                                                  
 id2=find(mask_land==1);                                                                                                                      
 mask=intersect(id1,id2);                                                                                                                     
 %%Mask data  
-load('D:\ToE\Areas_05.mat')
-load('D:\ToE\continental_raction.mat');
+load('D:\Droughts_scales\Areas_05.mat')
+load('D:\Droughts_scales\continental_raction.mat');
 Areas=A.*fr;                      
 %%Mask data                                                                                                                                  
 [lat,lon] = cdtgrid(0.5);                                                                                                                    
 txt={'Arid';'Semi-Arid';'Sub-Humid';'Humid'};                                                                                                
 %isin=inpolygon(lon,lat,content.X,content.Y);                                                                                                
-[img, ~] = geotiffread('D:\ToE\ai05.tif');                                                                                                   
+[img, ~] = geotiffread('D:\Droughts_scales\ai05.tif');                                                                                                   
 %info=geotiffinfo('');                                                                                                                       
 img=single(img);                                                                                                                             
 img(img==img(1,1))=nan;                                                                                                                      
@@ -76,7 +76,7 @@ for scale=1:24 %%%1-24 month scales
   spei=spei(mask,:,:);
   
   for m=1:12 %1-12month
-       %%%%calculate the m th month£¬r(NDVI,SPEI-j)
+       %%%%calculate the m th monthÂ£Â¬r(NDVI,SPEI-j)
        disp([['Round',num2str(n),':--',num2str((scale-1)*12+m),': Month',num2str(m),'---','Scale',num2str(scale)]])
        ndvi_month=squeeze(ndvi(:,m,n:n+window-1));
        ndvi_month_z=zscore(ndvi_month,0,2);
