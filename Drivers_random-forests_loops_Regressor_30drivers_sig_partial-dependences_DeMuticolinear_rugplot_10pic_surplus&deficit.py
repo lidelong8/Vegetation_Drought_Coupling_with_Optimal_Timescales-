@@ -44,15 +44,15 @@ rcParams.update(config)
 ###########################
 #['scale_slope','scale_slope_deficit','scale_slope_surplus','Sensitivity_slope','Sensitivity_slope_deficit','Sensitivity_slope_surplus']
 th=0
-writer = pd.ExcelWriter(r'C:\Users\37450\Desktop\Regressor_30drivers_sig_permute_decolinear_regions.xlsx',engine='openpyxl')
+writer = pd.ExcelWriter(r'D:\Droughts_scales\Output_data\Regressor_30drivers_sig_permute_decolinear_regions.xlsx',engine='openpyxl')
 for name_sheet in ['scale_slope_deficit','Sensitivity_slope_deficit','scale_slope_surplus','Sensitivity_slope_surplus'] :  
     #name_sheet='scale_slope'
     print(name_sheet)
     th=th+1;
     if name_sheet.find('scale')>=0:
-      df = pd.read_excel(r'C:\Users\37450\Desktop\30drivers_noclass_sig.xls',sheet_name='scale_slope')
+      df = pd.read_excel(r'D:\Droughts_scales\Output_data\30drivers_noclass_sig.xls',sheet_name='scale_slope')
     else: 
-      df = pd.read_excel(r'C:\Users\37450\Desktop\30drivers_noclass_sig.xls',sheet_name='Sensitivity_slope')
+      df = pd.read_excel(r'D:\Droughts_scales\Output_data\30drivers_noclass_sig.xls',sheet_name='Sensitivity_slope')
     columns=df.columns.values
     cls=pd.Index([1,1,1,1,1,2,2,3,2,3,3,3,3,3,3,2,3,3,3,3,2,2,1,1,1,1,1,3,2,1]) #.astype('object').T
     x_columns = df.columns.tolist()
