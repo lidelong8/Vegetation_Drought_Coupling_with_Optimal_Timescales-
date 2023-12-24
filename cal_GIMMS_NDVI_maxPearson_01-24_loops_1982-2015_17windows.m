@@ -77,7 +77,7 @@ for scale=1:24 %%%1-24 month scales
   spei=spei(mask,:,:);
   
   for m=1:12 %1-12month
-       %%%%calculate the m th month£¬r(NDVI,SPEI-j)
+       %%%%calculate the m th monthÂ£Â¬r(NDVI,SPEI-j)
        disp([['Round',num2str(n),':--',num2str((scale-1)*12+m),': Month',num2str(m),'---','Scale',num2str(scale)]])
        ndvi_month=squeeze(ndvi(:,m,n:n+window-1));
        ndvi_month_z=zscore(ndvi_month,0,2);
@@ -196,8 +196,7 @@ sigs=nan(length(data),1);
 tic
 for i=1:length(data)
 if all(~isnan(data(i,:)'))
-%[~, ~, ~, sig, Z, ~, ~, sen, ~, ~, ~, ~, ~, ~ ,~ ,~] = ktaub([x data(i,:)'],0.05);
-[slope, sig] = sen_sig([x data(i,:)']);     
+[~, ~, ~, sig, ~, ~, ~,slope, ~, ~, ~, ~, ~, ~ ,~ ,~] = ktaub([x data(i,:)'],0.05);   
 slopes(i)=slope;
 sigs(i) = sig;
 end
@@ -232,8 +231,7 @@ sigs=nan(length(data),1);
 tic
 for i=1:length(data)
 if all(~isnan(data(i,:)'))
-%[~, ~, ~, sig, Z, ~, ~, sen, ~, ~, ~, ~, ~, ~ ,~ ,~] = ktaub([x data(i,:)'],0.05);
-[slope, sig] = sen_sig([x data(i,:)']);    
+[~, ~, ~, sig, ~, ~, ~,slope, ~, ~, ~, ~, ~, ~ ,~ ,~] = ktaub([x data(i,:)'],0.05);  
 slopes(i)=slope;
 sigs(i) = sig;
 end
